@@ -1,0 +1,5 @@
+Please investigate this GitHub issue.
+
+We are testing the GitHub issue investigation agent in a fresh OpenAI Agents API session. No repository, issue URL, branch, logs, reproduction steps, or failing test output have been provided yet.
+
+Return a concise intake checklist, the missing context you need, a suggested investigation plan, and the first safe next steps.
