@@ -264,6 +264,8 @@ describe("worker identifiers", () => {
     const config = wranglerConfig();
     expect(config.name).toBe(WORKER_NAME);
     expect(config.name).not.toBe("bulk-invoice-contract-review-agent");
+    expect(IP_ATTEMPT_NAMESPACE_ID).toBe("41007");
+    expect(IP_ATTEMPT_NAMESPACE_ID).toMatch(/^[1-9][0-9]*$/);
     expect(config.ratelimits).toEqual([
       {
         name: "SESSION_ATTEMPT_LIMITER",
@@ -271,6 +273,7 @@ describe("worker identifiers", () => {
         simple: { limit: IP_ATTEMPT_LIMIT, period: IP_ATTEMPT_PERIOD_SECONDS },
       },
     ]);
+    expect(config.ratelimits[0]?.namespace_id).toMatch(/^[1-9][0-9]*$/);
     expect(config.durable_objects.bindings).toEqual([
       { name: "SESSION_START_LIMITER", class_name: "SessionStartLimiter" },
     ]);

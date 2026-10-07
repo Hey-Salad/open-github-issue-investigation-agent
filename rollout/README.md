@@ -6,7 +6,7 @@ These values belong to the GitHub issue investigation worker. Do not copy them o
 | --- | --- |
 | Worker name | `github-issue-investigation-agent` |
 | Pre-auth attempt limiter binding | `SESSION_ATTEMPT_LIMITER` |
-| Pre-auth attempt namespace id | `github-issue-investigation-agent-session-attempts` |
+| Pre-auth attempt namespace id | `41007` |
 | Attempt key | `ip:` + `CF-Connecting-IP`, or `ip:unknown` |
 | Attempt limit | 30 per 60 seconds |
 | Durable Object class | `SessionStartLimiter` |

@@ -5,9 +5,9 @@ export const SESSION_START_OBJECT_NAME = "github-issue-investigation-agent";
 
 /**
  * Rate Limiting binding namespace for pre-auth attempts.
- * Must stay unique to this worker so twins do not share a counter.
+ * Cloudflare requires a numeric string. This id is unique to this worker.
  */
-export const IP_ATTEMPT_NAMESPACE_ID = "github-issue-investigation-agent-session-attempts";
+export const IP_ATTEMPT_NAMESPACE_ID = "41007";
 
 export const IP_ATTEMPT_LIMIT = 30;
 export const IP_ATTEMPT_PERIOD_SECONDS = 60;

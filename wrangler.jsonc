@@ -9,7 +9,7 @@
   "ratelimits": [
     {
       "name": "SESSION_ATTEMPT_LIMITER",
-      "namespace_id": "github-issue-investigation-agent-session-attempts",
+      "namespace_id": "41007",
       "simple": {
         "limit": 30,
         "period": 60
