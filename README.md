@@ -16,12 +16,21 @@ npm install
 export OPENAI_API_KEY="your-api-key"
 ```
 
+`POST /api/sessions` requires a bearer token. Set `SESSION_AUTH_SECRET` to at least 32 characters. A missing or shorter secret fails closed with HTTP 503.
+
+```bash
+npx wrangler secret put SESSION_AUTH_SECRET
+```
+
+Session start is limited before that check to 30 attempts per 60 seconds per `CF-Connecting-IP` (`ip:` plus the address, or `ip:unknown` when the header is missing). After a valid token, a Durable Object caps successful session starts at 10 per 60 seconds for this worker. Identifiers for this worker are in `rollout/README.md`.
+
 The app uses OpenAI project `proj_mRsQVx3NjOamxeXH6UrLowoC` via the `OpenAI-Project` header by default.
 
 ## Run Locally
 
 ```bash
 npm run run:agent
+npm test
 npm run typecheck
 npm run dev
 ```
@@ -30,6 +39,7 @@ npm run dev
 
 ```bash
 npx wrangler secret put OPENAI_API_KEY
+npx wrangler secret put SESSION_AUTH_SECRET
 npm run deploy
 ```
 
