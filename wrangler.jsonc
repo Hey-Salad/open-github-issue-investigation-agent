@@ -6,6 +6,30 @@
   "observability": {
     "enabled": true
   },
+  "ratelimits": [
+    {
+      "name": "SESSION_ATTEMPT_LIMITER",
+      "namespace_id": "github-issue-investigation-agent-session-attempts",
+      "simple": {
+        "limit": 30,
+        "period": 60
+      }
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "SESSION_START_LIMITER",
+        "class_name": "SessionStartLimiter"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1-github-issue-investigation-agent-session-start",
+      "new_sqlite_classes": ["SessionStartLimiter"]
+    }
+  ],
   "vars": {
     "OPENAI_PROJECT": "proj_mRsQVx3NjOamxeXH6UrLowoC",
     "OPENAI_BASE_URL": "https://api.openai.com/v1",

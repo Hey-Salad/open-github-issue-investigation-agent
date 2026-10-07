@@ -7,11 +7,13 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "run:agent": "bash scripts/run-agent-session.sh",
+    "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20261006.1",
     "typescript": "^5.9.3",
+    "vitest": "^3.2.7",
     "wrangler": "^4.42.0"
   }
 }
